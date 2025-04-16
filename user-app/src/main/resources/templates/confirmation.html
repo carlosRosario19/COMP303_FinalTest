@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Booking Confirmation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .confirmation-container {
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .confirmation-header {
+            color: #4CAF50;
+            text-align: center;
+        }
+        .booking-details {
+            margin-top: 20px;
+        }
+        .detail-row {
+            display: flex;
+            margin-bottom: 10px;
+        }
+        .detail-label {
+            font-weight: bold;
+            width: 150px;
+        }
+        .back-button {
+            display: block;
+            width: 100%;
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+        .back-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+<div class="confirmation-container">
+    <h1 class="confirmation-header">Flight Booking Confirmed!</h1>
+    <p>Thank you for your booking. Here are your flight details:</p>
+
+    <div class="booking-details">
+        <div class="detail-row">
+            <span class="detail-label">First Name:</span>
+            <span th:text="${booking.firstName}"></span>
+        </div>
+        <div class="detail-row">
+            <span class="detail-label">Last Name:</span>
+            <span th:text="${booking.lastName}"></span>
+        </div>
+        <div class="detail-row">
+            <span class="detail-label">Passengers:</span>
+            <span th:text="${booking.passengers}"></span>
+        </div>
+        <div class="detail-row">
+            <span class="detail-label">Class:</span>
+            <span th:text="${booking.flightClass}"></span>
+        </div>
+        <div class="detail-row">
+            <span class="detail-label">Phone Number:</span>
+            <span th:text="${booking.phoneNumber}"></span>
+        </div>
+        <div class="detail-row">
+            <span class="detail-label">Departure Date:</span>
+            <span th:text="${booking.departureDate}"></span>
+        </div>
+        <div class="detail-row">
+            <span class="detail-label">Time:</span>
+            <span th:text="${booking.time}"></span>
+        </div>
+    </div>
+
+    <a th:href="@{/showForm}" class="back-button">Book Another Flight</a>
+</div>
+</body>
+</html>
